@@ -22,7 +22,7 @@ declare namespace ReactYearlyCalendar {
 
     interface CalendarProps {
         year: number;
-        selectedDay: Moment;
+        selectedDay?: Moment;
         forceFullWeeks?: boolean;
         showDaysOfWeek?: boolean;
         showWeekSeparators?: boolean;
@@ -50,7 +50,11 @@ declare namespace ReactYearlyCalendar {
         goToToday: () => void;
     } | {
         year: number;
-        showTodayButton?: false;
+        showTodayButton: false | null | undefined;
+        onPrevYear: () => void;
+        onNextYear: () => void;
+    } | {
+        year: number;
         onPrevYear: () => void;
         onNextYear: () => void;
     };
